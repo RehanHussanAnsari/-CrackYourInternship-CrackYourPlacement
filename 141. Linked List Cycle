@@ -1,0 +1,16 @@
+class Solution {
+public:
+
+static bool checkForCycle(ListNode* head, unordered_map<ListNode*,int>&hash){
+    ListNode* temp = head;
+    while(temp){
+        if(hash[temp]) return true;
+        hash[temp]++;
+        temp = temp->next;
+    }return false;
+}
+    bool hasCycle(ListNode *head) {
+        unordered_map<ListNode*,int>hash;
+        return checkForCycle(head,hash);
+    }
+};
